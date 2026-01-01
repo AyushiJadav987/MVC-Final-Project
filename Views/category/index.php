@@ -126,3 +126,5 @@ include("./Views/common/aside.php");
 <?php
 include("./Views/common/footer.php");
 ?>
+
+<!-- test -->
