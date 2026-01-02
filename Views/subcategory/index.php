@@ -39,7 +39,7 @@ include("./Views/common/aside.php");
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <!-- <form method="post" action="index.php?action=subadd"> -->
+                        
                         <form method="post" action="index.php?action=<?= isset($res1) ? 'subupdate' : 'subadd' ?>">
 
                             <div class="card-body">

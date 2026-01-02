@@ -33,6 +33,10 @@ switch ($action) {
         $controller1->edit();
         break;
 
+    case 'subupdate':
+        $controller1->update();
+        break;
+
     case 'delete':
         $controller->delete();
         break;

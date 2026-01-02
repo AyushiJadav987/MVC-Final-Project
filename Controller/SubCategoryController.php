@@ -49,37 +49,28 @@ class SubCategoryController
     {
 
         $id = $_GET['id'];
-        // $data = $this->subcatmodel->editData('sub_category', $id);
-        $result = $this->subcatmodel->editData('sub_category', $id);
-        $res1 = mysqli_fetch_assoc($result);  // fetch single row
+        $data = $this->subcatmodel->editData('sub_category', $id);
+        $res1 = mysqli_fetch_assoc($data);  
 
         $catdata = $this->catmodel->dispAll('categories');
-        $res = $this->subcatmodel->dispCatWiseData();
-        // $data = $this->subcatmodel->dispAll('sub_category');
-        // $catdata = $this->catmodel->dispAll('categories');
-        
-
-         // 🔹 Data for edit form (single record)
-    // $editdata = $this->subcatmodel->editData('sub_category', $id);
-
-    // 🔹 Category list for dropdown
-    
-
+         $res = $this->subcatmodel->dispCatWiseData();
+        $data = $this->subcatmodel->dispAll('sub_category');
+       
         include './Views/subcategory/index.php';
     }
 
-
     public function update()
+{
+    if (isset($_POST['subcatid'])) 
     {
-        if (isset($_POST['subcatid'], $_POST['subcat_name'])) {
-            $this->subcatmodel->updData(
-                "sub_category",
-                $_POST
-            );
-        }
-
+        $this->subcatmodel->updData('sub_category', $_POST);
         header("Location: index.php?action=subdisp");
         exit;
     }
+}
+
+
+
+   
 }
 ?>
